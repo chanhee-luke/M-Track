@@ -1,0 +1,10 @@
+Go left and then turn left again to face the dresser .
+Pick the phone up from the dresser .
+Go left and then turn left to face the bed .
+Put the phone down on the bed .
+<<stop>>
+turn left , walk to the dresser on the left
+grab the phone on the dresser
+turn left , walk to the end of the bed on the left
+put the phone on the bed
+<<stop>>

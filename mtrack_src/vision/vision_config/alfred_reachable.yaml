@@ -1,0 +1,39 @@
+_BASE_: "./Base-RCNN-FPN.yaml"
+MODEL:
+  WEIGHTS: "detectron2://ImageNetPretrained/MSRA/R-50.pkl"
+  # WEIGHTS: "/home/pan.667/d2062821/output_alfred_it27k_larger/model_final.pth"
+  MASK_ON: True
+  RESNETS:
+    DEPTH: 50
+  ROI_HEADS:
+    NAME: "AlfredStandardROIHeads"
+    NUM_CLASSES: 116
+    # SCORE_THRESH_TEST: 0.0001
+  ROI_ALFRED_HEAD:
+    NAME: "AlfredHead"
+    NUM_FC: 2
+    POOLER_RESOLUTION: 7
+INPUT:
+  # MIN_SIZE_TRAIN: (236, 268, 300, 332, 364, 396)
+  # MIN_SIZE_TEST: 0
+  MIN_SIZE_TRAIN: (640, 672, 704, 736, 768, 800)
+  MIN_SIZE_TEST: 800
+  MASK_FORMAT: "bitmask"
+DATASETS:
+  TRAIN: ("alfred_full",)
+  TEST: ("alfred3_val","alfred3_test")
+  # TEST: ("alfred2_val",)
+  # TEST: ("alfred_val",)
+SOLVER:
+  IMS_PER_BATCH: 16
+  BASE_LR: 0.02
+  STEPS: (210000, 250000)
+  MAX_ITER: 270000
+  CHECKPOINT_PERIOD: 20000
+TEST:
+  EVAL_PERIOD: 10000
+  # DETECTIONS_PER_IMAGE: 300  # LVIS allows up to 300
+DATALOADER:
+  SAMPLER_TRAIN: "RepeatFactorTrainingSampler"
+  REPEAT_THRESHOLD: 0.001
+OUTPUT_DIR: "output_alfred/output_alfred_full_reachable_mask"

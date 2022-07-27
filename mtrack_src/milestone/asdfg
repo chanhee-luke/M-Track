@@ -1,0 +1,3 @@
+[31m[Model Info] Loading pretrained language model bert-base-uncased[0m
+[Data Info] Tokenizing the instances using 'bert-base-uncased' tokenizer
+[OrderedDict([('nav', ['dresser'])]), OrderedDict([('inter', ['phone'])]), OrderedDict([('nav', ['bed'])]), OrderedDict([('inter', ['phone', 'on']), ('nav', ['bed'])]), OrderedDict(), OrderedDict([('nav', ['dresser'])]), OrderedDict([('inter', ['phone', 'on'])]), OrderedDict([('nav', ['bed'])]), OrderedDict([('inter', ['phone', 'on']), ('nav', ['bed'])]), OrderedDict()]
